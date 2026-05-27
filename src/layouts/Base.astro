@@ -8,8 +8,10 @@ import { SITE } from '../data/site';
 interface Props {
   title?: string;
   description?: string;
+  /** When true, suppress the masthead + footer (used by the coming-soon page). */
+  bare?: boolean;
 }
-const { title, description = SITE.description } = Astro.props;
+const { title, description = SITE.description, bare = false } = Astro.props;
 const fullTitle = title ?? SITE.name;
 ---
 <!doctype html>
@@ -31,11 +33,11 @@ const fullTitle = title ?? SITE.name;
   />
 </head>
 <body>
-  <Masthead />
+  {!bare && <Masthead />}
   <main>
     <slot />
   </main>
-  <Footer />
+  {!bare && <Footer />}
   <PreviewBanner />
 </body>
 </html>

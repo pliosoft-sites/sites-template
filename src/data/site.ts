@@ -19,6 +19,13 @@ export const SITE = {
   /** The business name as it appears in the masthead, titles, footer. */
   name: '[Your Business Name]',
 
+  /**
+   * While true, the site shows a "coming soon" placeholder instead of the
+   * homepage, and the navigation is hidden. New sites start this way. Flip
+   * to false once the real first version is ready to launch.
+   */
+  comingSoon: true as boolean,
+
   /** One-line description used in <meta description> and OpenGraph. */
   tagline: 'A short, plain-English description of what you do.',
   description: 'Longer description for search engines and social previews.',
